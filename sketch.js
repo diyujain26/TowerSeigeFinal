@@ -172,17 +172,19 @@ function keyPressed (){
 }
 
 async function getbgimage(){
-  var res = await fetch("http://worldtimeapi.org/api/timezone/Asia/Kolkata");
+  var response = await fetch("http://worldtimeapi.org/api/timezone/Asia/Kolkata");
   var responseJSON = await response.json();
   
   var datetime = responseJSON.datetime;
-  var hour = datetime.slice(11,13);
+  var hour = datetime.slice(11, 13);
+   //console.log(hour);
 
-  if(hour >= 06 && hour <= 19 ){
-    bg = "day.jpg"
-  }
-  else{
-      bg = "night.jpg"
-  }
-  backgroundImg = loadImage(bg);
+   if (hour >= 06 && hour <= 18) {
+     bg = "images/light.jpg";
+   } else {
+     bg = "images/dark.jpg";
+   }
+
+   backgroundImg = loadImage(bg);
+   console.log(backgroundImg);
 }
