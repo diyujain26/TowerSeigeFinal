@@ -173,9 +173,9 @@ function keyPressed (){
 
 async function getbgimage(){
   var res = await fetch("http://worldtimeapi.org/api/timezone/Asia/Kolkata");
-  var response = await res.json();
+  var responseJSON = await response.json();
   
-  var datetime = response.datetime 
+  var datetime = responseJSON.datetime;
   var hour = datetime.slice(11,13);
 
   if(hour >= 06 && hour <= 19 ){
